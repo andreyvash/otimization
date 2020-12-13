@@ -3,7 +3,6 @@
 #include <getopt.h>
 #include "lp_lib.h"
 
-#define DEBUG
 
 typedef struct Maquina {
     int custo;
@@ -202,16 +201,13 @@ int main (int argc, char **argv)
     {
         for(int j = 0; j < nTarefas; j++)
         {
-            custo += vars[j+i] * maquinas[i].custo;
-            printf("%g ", vars[j+i]);
+            custo += vars[(i*nTarefas) + j] * maquinas[i].custo;
+            printf("%g ", vars[(i*nTarefas) + j]);
         }
         printf("\n");
     }
 
-    printf("%g\n ", custo);
-
-    //print_constraints(lp, 1);
-   // print_lp(lp);
+    printf("%g\n", custo);
 
     delete_lp(lp);
     return(0);
