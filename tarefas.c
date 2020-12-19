@@ -133,6 +133,18 @@ int main (int argc, char **argv)
     scanf("%d", &nTarefas);
     scanf("%d", &nMaquinas);
 
+    if(nTarefas < 1)
+    {
+        printf("Numero de tarefas precisa ser no minimo 1\n");
+        exit(-1);
+    }
+
+    if(nMaquinas < 1)
+    {
+        printf("Numero de maquinas precisa ser no minimo 1\n");
+        exit(-1);
+    }
+
     horasTarefas = malloc( nTarefas * sizeof(int));
 
     for(int i = 0; i < nTarefas; i++)
